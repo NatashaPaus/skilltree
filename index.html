@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skilltree – velg fag</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#101421;color:#f5f5ff}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 12% 0%,#243658,transparent 65%),radial-gradient(ellipse at 90% 70%,#30224e,transparent 55%),#101421}
+main{max-width:1050px;margin:auto;padding:clamp(24px,7vw,90px) 24px}
+.label{color:#b9c7e1;font-size:.8rem;font-weight:750;letter-spacing:.16em}
+h1{font-size:clamp(3.6rem,11vw,7rem);letter-spacing:-.085em;line-height:1;margin:.14em 0 .24em}
+p{color:#d0d6e7;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.tile{--accent:#bcf594;display:flex;flex-direction:column;justify-content:space-between;gap:22px;min-height:210px;width:100%;padding:24px;border:1px solid #5a647e;border-top:4px solid var(--accent);border-radius:18px;background:#1b2338;color:inherit;text-align:left;text-decoration:none;font:inherit;cursor:pointer;transition:background .15s}
+.tile:hover{background:#2b3855}
+.tile:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.tile:nth-child(2){--accent:#ffbe80}.tile:nth-child(3){--accent:#a8c7ff}
+.code{display:block;color:var(--accent);font-size:2.4rem;font-weight:850;line-height:1.15}
+.subject{display:block;margin-top:8px}.action{color:#d0d6e7;font-size:.92rem}.status{min-height:1.6em}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.tile{min-height:132px;gap:15px}}
+@media(prefers-reduced-motion:reduce){.tile{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<div class="label">FERDIGHETSTRÆR</div>
+<h1>Skilltree</h1>
+<p>Velg fag for å åpne ferdighetstreet.</p>
+<nav class="grid" aria-label="Velg fag">
+<!-- Når 2P-filen er lastet opp: Bytt knappen under med en lenke, for eksempel
+     <a class="tile" href="2p.html"><span><strong class="code">2P</strong><span class="subject">Matematikk 2P</span></span><span class="action">Åpne ferdighetstreet →</span></a>
+     Bruk filens nøyaktige navn. -->
+<button class="tile" id="coming" type="button"><span><strong class="code">2P</strong><span class="subject">Matematikk 2P</span></span><span class="action">Kommer snart</span></button>
+<a class="tile" href="markedsforing-og-ledelse-1.html"><span><strong class="code">MaLe1</strong><span class="subject">Markedsføring og ledelse 1</span></span><span class="action">Åpne ferdighetstreet →</span></a>
+<a class="tile" href="fysikk-1.html"><span><strong class="code">FY1</strong><span class="subject">Fysikk 1</span></span><span class="action">Åpne ferdighetstreet →</span></a>
+</nav>
+<p class="status" id="status" role="status"></p>
+</main>
+<script>document.getElementById('coming').addEventListener('click',()=>{document.getElementById('status').textContent='Ferdighetstreet for 2P kommer snart.'});</script>
+</body>
+</html>
